@@ -225,8 +225,14 @@ function execute_init_sql() {
     _logger info "MySQL service has been successfully installed. Summary:"
     mysqladmin version
     echo
+    if grep HOME /etc/profile; then
+        echo -e "${red}Note: Detected the above environment variables are not in effect."
+        echo -e "      Please run ${blue}source /etc/profile ${red}to apply them.${reset}"
+    fi
+    echo
     echo -e "${green}Local login command: ${blue}mysql${reset}"
     echo -e "${green}Remote login command: ${blue}$REMOTE_LOGIN_CMD${reset}"
+
 }
 
 function remove() {
