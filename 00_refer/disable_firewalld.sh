@@ -1,0 +1,1 @@
+systemctl stop firewalld && systemctl disable $_ && systemctl status --no-pager $_
